@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-directiva',
@@ -6,8 +6,11 @@ import { Component,OnInit } from '@angular/core';
 })
 export class DirectivaComponent {
 
-listCourse: string[] = ['TypeScript','JavaScript','JavaSE','C#','PHP'];
+  listCourse: string[] = ['TypeScript','JavaScript','JavaSE','C#','PHP'];
+  enable: boolean = true;
   constructor() { }
 
-
+  setEnable(): void{
+      this.enable=(this.enable)?false:true;
+  }
 }
