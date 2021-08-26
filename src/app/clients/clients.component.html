@@ -2,6 +2,12 @@
   <div class="card-header">Clients</div>
   <div class="card-body text-primary">
     <h5 class="card-title">List of Clients</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink] =
+      "['/clients/form']"> Create Clients</button>
+    </div>
+
+
     <table>
       <thead class = "table table-bordered table-striped">
         <tr>
@@ -10,17 +16,24 @@
           <th>surName</th>
           <th>email</th>
           <th>createAt</th>
-
+          <th>edit</th>
+          <th>delete</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of clients">
-          <td>{{item.id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.surName}}</td>
-          <td>{{item.email}}</td>
-          <td>{{item.createAt}}</td>
+        <tr *ngFor="let client of clients">
+          <td>{{client.id}}</td>
+          <td>{{client.name}}</td>
+          <td>{{client.surName}}</td>
+          <td>{{client.email}}</td>
+          <td>{{client.createAt}}</td>
+          <td>
+            <button type="button" name = "edit" [routerLink] = "['/clients/form',client.id]" class="btn btn-primary">Edit</button>
+          </td>
+          <td>
+            <button type="button" name = "delete"  (click)='delete(client)' class="btn btn-primary">Delete</button>
 
+          </td>
         </tr>
       </tbody>
     </table>
